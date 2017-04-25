@@ -7,12 +7,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @beer.image %>
+  <%=image_tag @beer.image.url(:medium)%>
 </p>
 
 <p>
   <strong>Type:</strong>
-  <%= @beer.type %>
+  <%= @beer.beer_type %>
 </p>
 
 <p>
