@@ -13,7 +13,12 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'haml', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
+gem 'money-rails', '~>1'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -1,39 +1,56 @@
-<%= form_for(beer, html: { multipart: true }) do |f| %>
-  <% if beer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+<form class="form-horizontal">
+  <%= simple_form_for @beer, url: new_beer_path, multipart: true do |f| %>
+    <% if beer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+        <ul>
+        <% beer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% beer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.input_field :name %>
+      </div>
     </div>
+
+    <div class="form-group">
+      <%= f.label :image %>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :beer_type %>
+      <%= f.text_field :beer_type %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :quantity %>
+      <%= f.number_field :quantity %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :unit_type %>
+      <%= f.text_field :unit_type %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :price %>
+        <%= f.text_field :price %>
+    </div>
+
+
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary"  %>
+    </div>
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-
-
-  </div>
-
-  <div class="field">
-    <%= f.label :beer_type %>
-    <%= f.text_field :beer_type %>
-  </div>
-
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</form>

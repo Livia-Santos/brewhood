@@ -1,0 +1,14 @@
+%p#intro
+  Hello Username
+  %br/
+  %span
+    Find your next homebrew beer here.
+
+#beers
+  - @beers.each do |beer|
+    .post
+      .beer_image
+        = link_to (image_tag beer.image.url(:medium)), beer
+      .beer_content
+        .title
+          %h2= link_to beer.name, beer

@@ -1,0 +1,22 @@
+!!!
+%html
+%head
+  %title BrewHood
+  = stylesheet_link_tag    'application', media: 'all'
+  = javascript_include_tag 'application'
+  %link{:rel => "stylesheet", :href => "http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
+  %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Unlock"}
+  %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Coda+Caption:800|Unlock"}
+
+  %link{:rel => "stylesheet", :href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
+  = csrf_meta_tags
+%body
+  %header
+    .wrapper.clearfix
+      #logo= link_to "BrewHood", root_path
+      %nav
+        = link_to "Sell Beer", new_beer_path
+  %p.notice= notice
+  %p.alert= alert
+  .wrapper
+    = yield

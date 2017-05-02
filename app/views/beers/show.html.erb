@@ -1,23 +1,25 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @beer.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @beer.name %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%=image_tag @beer.image.url(:medium)%>
-</p>
-
+<p> <%=image_tag @beer.image.url(:medium)%> </p>
 <p>
   <strong>Type:</strong>
   <%= @beer.beer_type %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @beer.description %>
+</p>
+<p>
+  <strong>Unit Type:</strong>
+  <%= @beer.unit_type %>
+</p>
+<p>
+  <strong>Quantity:</strong>
+  <%= @beer.quantity %>
+</p>
+<p>
+  <strong>Price:</strong>
+  <%= @beer.price %>
 </p>
 
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
