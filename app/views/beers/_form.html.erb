@@ -1,56 +1,52 @@
-<form class="form-horizontal">
-  <%= simple_form_for @beer, url: new_beer_path, multipart: true do |f| %>
-    <% if beer.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
-        <ul>
-        <% beer.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="form-group">
-        <%= f.label :name %>
-        <%= f.input_field :name %>
-      </div>
+<%= simple_form_for @beer do |f| %>
+  <% if beer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
+      <ul>
+      <% beer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
-
-    <div class="form-group">
-      <%= f.label :image %>
-      <%= f.file_field :image %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :beer_type %>
-      <%= f.text_field :beer_type %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :quantity %>
-      <%= f.number_field :quantity %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :unit_type %>
-      <%= f.text_field :unit_type %>
-    </div>
-
-    <div class="form-group">
-        <%= f.label :price %>
-        <%= f.text_field :price %>
-    </div>
-
-
-    <div class="form-group">
-      <%= f.submit class: "btn btn-primary"  %>
-    </div>
-
   <% end %>
-</form>
+
+  <div class="form-group">
+    <%= f.label :name %><br />
+    <%= f.input_field :name %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.label :beer_type %><br />
+    <%= f.text_field :beer_type %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.label :unit_type %><br />
+    <%= f.text_field :unit_type %><br />
+  </div>
+
+  <div class="form-group">
+      <%= f.label :price %><br />
+      <%= f.text_field :price %><br />
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary"  %>
+  </div>
+
+<% end %>
