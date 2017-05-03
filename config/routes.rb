@@ -8,7 +8,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-
   root "beers#index"
-
 end

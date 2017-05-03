@@ -57,7 +57,7 @@ class BeersController < ApplicationController
   end
 
   def downvote
-    @beer.downvote_buy current_user
+    @beer.downvote_by current_user
     redirect_to :back
   end
 
