@@ -21,6 +21,12 @@
   <strong>Price:</strong>
   <%= @beer.price %>
 </p>
+<br />
+<p> Add by:
+  <%= @beer.user.email %>
+</p>
+<br />
 
+<%= link_to 'Destroy', beer_path(@beer), methode: :delete, data: { confirm: "Are you sure?"} %> |
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
 <%= link_to 'Back', beers_path %>

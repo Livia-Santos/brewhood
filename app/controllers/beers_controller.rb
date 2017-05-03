@@ -3,7 +3,7 @@ class BeersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @beers = Beer.all
+    @beers = Beer.all.order("created_at DESC")
   end
 
   def show
