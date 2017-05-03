@@ -1,0 +1,30 @@
+#beershow
+  %h1= @beer.name
+  %p.user.email
+    Shared by
+    = @beer.user.email
+    about
+    = time_ago_in_words(@beer.created_at)
+  .clearfix
+    .post_image_description
+      %p= image_tag @beer.image.url(:medium)
+      .description= simple_format(@beer.description)
+
+  - if @beer.user == current_user
+    = link_to "Edit", edit_beer_path(@beer), class: "data"
+    = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
+
+#comments
+  %h2.comment_count= pluralize(@beer.comments.count, "Comment")
+  - @comments.each do |comment|
+    .comment
+      %p.content= comment.contet
+      %p.username
+      Comment by
+      = comment.user.email
+      about
+      = time_ago_in_words(comment.created_at)
+      %hr 
+
+
+=render "comments/form"
