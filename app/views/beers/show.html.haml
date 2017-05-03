@@ -14,23 +14,28 @@
       = link_to dislike_beer_path(@beer), method: :get, class: "data" do
         %i.fa.fa-thumbs-o-down
         = pluralize(@beer.get_downvotes.size, "Dislike")
-      .description
-      %br
-      %p Description:
-      = simple_format(@beer.description)
-      %h4
-        Unit type:
-        = @beer.unit_type
-      %h4
-        Quantity available:
-        = @beer.quantity
-      %h4
-        Price:
-        = @beer.price
+      - if @beer.user == current_user
+        = link_to "Edit", edit_beer_path(@beer), class: "button"
+        = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+      - else
+        = link_to "Buy Beer", edit_beer_path(@beer), class: "button"
 
-  - if @beer.user == current_user
-    = link_to "Edit", edit_beer_path(@beer), class: "data"
-    = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "data"
+
+
+      .description
+        %br
+        %p Description:
+        = simple_format(@beer.description)
+        %br
+        %h4 Unit type:
+        = @beer.unit_type
+        %br
+        %h4 Quantity available:
+        = @beer.quantity
+        %br
+        %h4 Price:
+        = @beer.price
+        %br
 
 #comments
   %h2.comment_count= pluralize(@beer.comments.count, "Comment")
@@ -42,7 +47,6 @@
       = comment.user.email
       about
       = time_ago_in_words(comment.created_at)
-      %hr
 
 
 =render "comments/form"

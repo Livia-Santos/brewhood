@@ -1,9 +1,16 @@
-%p#intro
-  Hello
-  = current_user.email
-  %br/
-  %span
-    Find your next homebrew beer here.
+- if user_signed_in?
+  %p#intro
+    Hello
+    = current_user.email
+    %br/
+    %span
+      Find your next homebrew beer here.
+- else
+  %p#intro
+    Welcome to BrewHood
+    %br/
+    %span
+      Find your next homebrew beer here.
 
 #beers
   - @beers.each do |beer|
@@ -13,3 +20,11 @@
       .beer_content
         .title
           %h2= link_to beer.name, beer
+          .data.clearfix
+          %p.buttons
+            %span
+              %i.fa.fa-comments-o
+                = beer.comments.count
+            %span
+              %i.fa.fa-thumbs-o-up
+                = beer.get_likes.size

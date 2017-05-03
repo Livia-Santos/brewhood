@@ -1,27 +1,16 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
  *= require_self
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 body {
-	font-family: 'Coda Caption', sans-serif;
-	font-weight: 100;
+	font-family: 'Droid Sans', sans-serif;
+	letter-spacing: 0.15rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
+	font-family: 'Coda Caption', sans-serif;
 	font-weight: 100;
 }
 
@@ -44,15 +33,14 @@ h1, h2, h3, h4, h5, h6 {
 	padding: .7rem 1.25rem;
 	border-radius: .3rem;
 	outline: none;
-	background: white;
-	color: #9B9B9B;
+	background: #000000;
+	color: #ffffff;
 }
 
 header {
   background-color: #000000;
 	width: 100%;
 	padding: 2rem 0;
-	border-bottom: 1px solid #E4E4E4;
 
   #logo {
 		float: left;
@@ -70,7 +58,7 @@ header {
 		float: right;
 		a {
       font-family: 'Coda Caption', sans-serif;
-      font-size: 1.8rem;
+      font-size: 1.7rem;
 			margin-left: 1.5rem;
 			line-height: 2;
 			color: #EEA90A;
@@ -81,3 +69,11 @@ header {
 		}
 	}
 }
+
+.alert alert-danger {
+	font-size: 20px;
+
+}
+
+@import "index.css.scss";
+@import "beers.css.scss";

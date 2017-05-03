@@ -1,6 +1,6 @@
 <%= simple_form_for @beer do |f| %>
   <% if beer.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger">
       <h2><%= pluralize(beer.errors.count, "error") %> prohibited this beer from being saved:</h2>
       <ul>
       <% beer.errors.full_messages.each do |message| %>
@@ -10,29 +10,14 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :name %><br />
-    <%= f.input_field :name %><br />
-  </div>
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :image %><br />
+    <%= f.input :description %><br />
+    <%= f.input :beer_type %><br />
+    <%= f.input :quantity %><br />
 
-  <div class="form-group">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %><br />
-  </div>
 
-  <div class="form-group">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %><br />
-  </div>
-
-  <div class="form-group">
-    <%= f.label :beer_type %><br />
-    <%= f.text_field :beer_type %><br />
-  </div>
-
-  <div class="form-group">
-    <%= f.label :quantity %><br />
-    <%= f.number_field :quantity %><br />
   </div>
 
   <div class="form-group">
@@ -46,7 +31,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.submit class: "btn btn-primary"  %>
+    <%= f.submit class: "button"  %>
   </div>
 
 <% end %>
