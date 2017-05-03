@@ -8,7 +8,25 @@
   .clearfix
     .post_image_description
       %p= image_tag @beer.image.url(:medium)
-      .description= simple_format(@beer.description)
+      = link_to like_beer_path(@beer), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-up
+        = pluralize(@beer.get_upvotes.size, "Like")
+      = link_to dislike_beer_path(@beer), method: :get, class: "data" do
+        %i.fa.fa-thumbs-o-down
+        = pluralize(@beer.get_downvotes.size, "Dislike")
+      .description
+      %br
+      %p Description:
+      = simple_format(@beer.description)
+      %h4
+        Unit type:
+        = @beer.unit_type
+      %h4
+        Quantity available:
+        = @beer.quantity
+      %h4
+        Price:
+        = @beer.price
 
   - if @beer.user == current_user
     = link_to "Edit", edit_beer_path(@beer), class: "data"
@@ -24,7 +42,7 @@
       = comment.user.email
       about
       = time_ago_in_words(comment.created_at)
-      %hr 
+      %hr
 
 
 =render "comments/form"

@@ -1,5 +1,5 @@
 class BeersController < ApplicationController
-  before_action :set_beer, only: [:show, :edit, :update, :destroy]
+  before_action :set_beer, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -49,6 +49,16 @@ class BeersController < ApplicationController
       format.html { redirect_to beers_url, notice: 'Beer was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @beer.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @beer.downvote_buy current_user
+    redirect_to :back
   end
 
   private
