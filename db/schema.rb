@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503033713) do
+ActiveRecord::Schema.define(version: 20170504102926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,36 @@ ActiveRecord::Schema.define(version: 20170503033713) do
     t.datetime "updated_at", null: false
     t.index ["beer_id"], name: "index_comments_on_beer_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "beer_id"
+    t.integer  "quantity"
+    t.string   "stripe_charge_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["beer_id"], name: "index_orders_on_beer_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "age"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country_code"
+    t.text     "description"
+    t.string   "brewing_since"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "instagram"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,4 +104,7 @@ ActiveRecord::Schema.define(version: 20170503033713) do
 
   add_foreign_key "comments", "beers"
   add_foreign_key "comments", "users"
+  add_foreign_key "orders", "beers"
+  add_foreign_key "orders", "users"
+  add_foreign_key "profiles", "users"
 end

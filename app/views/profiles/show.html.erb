@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Your Hood Profile:</h2>
+<br />
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Addres:</strong>
+  <%= @profile.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @profile.state %>
+</p>
+
+<p>
+  <strong>Country code:</strong>
+  <%= @profile.country_code %>
+</p>
+
+<p>
+  <strong>Brewing since:</strong>
+  <%= @profile.brewing_since %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @profile.facebook %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @profile.twitter %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= @profile.instagram %>
+</p>
+<br />
+<%= link_to 'Edit Profile', edit_profile_path(@profile), class: "button" %>
+<%= link_to "Edit User", edit_user_registration_path, class: "button" %>

@@ -1,6 +1,7 @@
 class Beer < ApplicationRecord
   belongs_to :user
   has_many :comments
+  has_many :orders
   acts_as_votable
 
   validates :name, :beer_type, :unit_type, :price, :quantity, presence: true

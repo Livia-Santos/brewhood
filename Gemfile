@@ -19,7 +19,11 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'simple_form'
 gem "paperclip", "~> 5.0.0"
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'stripe'
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'money-rails', '~>1'
+gem 'country_select'
+
 
 
 group :development, :test do
