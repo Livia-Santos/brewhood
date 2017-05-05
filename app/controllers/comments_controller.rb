@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def create
     @beer = Beer.find(params[:beer_id])
-    @comment = Comment.create(params[:comment].permit(:contet))
+    @comment = Comment.create(params[:comment].permit(:content))
     @comment.user_id = current_user.id
     @comment.beer_id = @beer.id
 
