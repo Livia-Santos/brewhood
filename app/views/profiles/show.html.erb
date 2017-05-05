@@ -42,13 +42,18 @@
 </p>
 
 <p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<p>
   <strong>Brewing since:</strong>
   <%= @profile.brewing_since %>
 </p>
 
 <p>
   <strong>Facebook:</strong>
-  <%= @profile.facebook %>
+  <%= link_to @profile.facebook %>
 </p>
 
 <p>
