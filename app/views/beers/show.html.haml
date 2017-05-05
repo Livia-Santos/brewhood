@@ -19,22 +19,19 @@
         = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
       - else
         = link_to "Buy", new_order_path, class:"button"
-        %script.stripe-button{"data-amount" => @amount, "data-description" => @description, "data-email" => current_user.email, "data-key" => Rails.configuration.stripe[:publishable_key], "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
 
       .description
         %br
-        %p Description:
+        %h4 Description:
         = simple_format(@beer.description)
-        %br
+        %h4 beer type:
+        = @beer.beer_type
         %h4 Unit type:
         = @beer.unit_type
-        %br
         %h4 Quantity available:
         = @beer.quantity
-        %br
         %h4 Price:
         = @beer.price
-        %br
 
 #comments
   %h2.comment_count= pluralize(@beer.comments.count, "Comment")
