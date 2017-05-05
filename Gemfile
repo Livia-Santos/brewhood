@@ -28,11 +28,9 @@ gem 'country_select'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem "pg"
 end
 
 group :development do
-  gem "pg"
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
