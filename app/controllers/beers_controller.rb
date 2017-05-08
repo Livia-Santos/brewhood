@@ -8,6 +8,9 @@ class BeersController < ApplicationController
 
   def show
     @comments = Comment.where(beer_id: @beer)
+    @profile =  @beer.profile
+
+
   end
 
   def new

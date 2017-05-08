@@ -10,13 +10,15 @@
 #beers {
 	.beer {
 		background: #F8F9FA;
-		width: 30%;
+		width: 100%;
+		max-width: 540px;
+		min-width: 300px;
 		float: left;
 		margin: 1rem 1.5%;
 		border: 1px solid #E4E4E4;
 		border-radius: 0.3rem;
 		.beer_image {
-			height: 200px;
+			height: 395px;
 			overflow: hidden;
 			img {
 				width: 100%;

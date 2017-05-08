@@ -34,7 +34,7 @@
 
 <p>
   <strong>Country code:</strong>
-  <%= @profile.country_code %>
+  <%= @profile.country_code%>
 </p>
 
 <p>
@@ -53,7 +53,7 @@
 
 <p>
   <strong>Facebook:</strong>
-  <%= link_to @profile.facebook %>
+  <%= @profile.facebook %>
 </p>
 
 <p>
@@ -66,5 +66,8 @@
   <%= @profile.instagram %>
 </p>
 <br />
-<%= link_to 'Edit Profile', edit_profile_path(@profile), class: "button" %>
-<%= link_to "Edit User", edit_user_registration_path, class: "button" %>
+
+<% if @profile.user == current_user %>
+  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "button" %>
+  <%= link_to "Edit User", edit_user_registration_path, class: "button" %>
+<% end %>

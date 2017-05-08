@@ -1,7 +1,7 @@
 - if user_signed_in?
   %p#intro
     Hello
-    = current_user.email
+    = current_user.profile.first_name
     %br/
     %span
       Find your next homebrew beer here.

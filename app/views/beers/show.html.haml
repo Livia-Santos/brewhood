@@ -20,6 +20,7 @@
       - else
         = link_to "Buy", new_order_path, class:"button"
 
+
       .description
         %br
         %h4 Description:
@@ -33,6 +34,20 @@
         %h4 Price:
         = @beer.price
 
+        .brewer
+        %h4 Brewed by:
+        =image_tag @profile.avatar.url(:thumb)
+        %h5 Hood: #{@profile.first_name}
+        %h5 From: #{@profile.country_code}
+
+      = link_to "Hood Profile", profile_path(@profile), class: "button"
+
+
+
+
+
+
+
 #comments
   %h2.comment_count= pluralize(@beer.comments.count, "Comment")
   - @comments.each do |comment|
@@ -40,7 +55,7 @@
       %p.content= comment.content
       %p.username
       Comment by
-      = comment.user.email
+      = comment.user.profile.first_name
       about
       = time_ago_in_words(comment.created_at)
 
