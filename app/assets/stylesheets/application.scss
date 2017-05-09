@@ -44,7 +44,7 @@ header {
 
   #logo {
 		float: left;
-		font-size: 3rem;
+		font-size: 2.5rem;
 		a {
       font-family: 'Unlock', cursive;
 			color: #EEA90A;
@@ -55,25 +55,21 @@ header {
 		}
 	}
 	nav {
-		float: right;
 		a {
       font-family: 'Coda Caption', sans-serif;
-      font-size: 1.7rem;
+      font-size: 1.5rem;
 			margin-left: 1.5rem;
 			line-height: 2;
 			color: #EEA90A;
 			text-decoration: none;
 			&:hover {
 				color: #50A7C7;
+				text-decoration: none;
 			}
 		}
 	}
 }
 
-.alert alert-danger {
-	font-size: 20px;
-
-}
 
 @import "index.css.scss";
 @import "beers.css.scss";

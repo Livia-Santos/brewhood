@@ -10,11 +10,13 @@
   %link{:rel => "stylesheet", :href => "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
   = csrf_meta_tags
   %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-%body
+
+  %body
   %header
     .wrapper.clearfix
       #logo= link_to "BrewHood", root_path
-      %nav
+
+      %nav.navbar-nav.navbar-right
         - if user_signed_in?
           = link_to "Sell Beer", new_beer_path
           = link_to "Know the Hoods", profiles_path
@@ -22,9 +24,13 @@
         - else
           = link_to "Sign In", new_user_session_path
           = link_to "Sign Up", new_user_registration_path
+
   .wrapper
-    %p.notice= notice
-    %p.alert= alert
+    .container
+      - flash.each do |key,value|
+        %div{:class => "#{flash_class(key)}"}
+          = value
+
 
   .wrapper
     = yield

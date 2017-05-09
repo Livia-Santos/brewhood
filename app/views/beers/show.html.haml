@@ -5,21 +5,21 @@
     = @beer.user.email
     about
     = time_ago_in_words(@beer.created_at)
-  .clearfix
-    .post_image_description
-      %p= image_tag @beer.image.url(:medium)
-      = link_to like_beer_path(@beer), method: :get, class: "data" do
-        %i.fa.fa-thumbs-o-up
-        = pluralize(@beer.get_upvotes.size, "Like")
-      = link_to dislike_beer_path(@beer), method: :get, class: "data" do
-        %i.fa.fa-thumbs-o-down
-        = pluralize(@beer.get_downvotes.size, "Dislike")
-      - if @beer.user == current_user
-        = link_to "Edit", edit_beer_path(@beer), class: "button"
-        = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
-      - else
-        = link_to "Buy", new_order_path, class:"button"
 
+    .container-fluid
+      .post_image_description
+        %p= image_tag @beer.image.url(:medium), class: "img-thumbnail"
+        = link_to like_beer_path(@beer), method: :get, class: "data" do
+          %i.fa.fa-thumbs-o-up
+          = pluralize(@beer.get_upvotes.size, "Like")
+        = link_to dislike_beer_path(@beer), method: :get, class: "data" do
+          %i.fa.fa-thumbs-o-down
+          = pluralize(@beer.get_downvotes.size, "Dislike")
+        - if @beer.user == current_user
+          = link_to "Edit", edit_beer_path(@beer), class: "button"
+          = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+        - else
+          = link_to "Buy", new_order_path, class:"button"
 
       .description
         %br
@@ -34,17 +34,13 @@
         %h4 Price:
         = @beer.price
 
-        .brewer
-        %h4 Brewed by:
-        =image_tag @profile.avatar.url(:thumb)
-        %h5 Hood: #{@profile.first_name}
-        %h5 From: #{@profile.country_code}
+        .text-center
+          %h4 Brewed by:
+          %p= image_tag @profile.avatar.url(:thumb), class: "img-circle"
+          %h5 Hood: #{@profile.first_name}
+          %h5 From: #{@profile.country.name}
 
-      = link_to "Hood Profile", profile_path(@profile), class: "button"
-
-
-
-
+          = link_to "Hood Profile", profile_path(@profile), class: "button"
 
 
 

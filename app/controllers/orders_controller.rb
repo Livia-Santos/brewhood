@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_beer
   before_action :amount_to_be_charged
   before_action :description
 
@@ -8,7 +9,7 @@ class OrdersController < ApplicationController
 
 
   def create
-    @order = Order.create(params[:order])
+    @order = Order.new(params[:order])
     @order.user_id = current_user.id
     # user Id has many beers
     # I have to know in wich beer I am to pass to the databe
@@ -40,6 +41,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
+      params.require(:order).permit(:user_id, :beer_id, :quantity, :stripe_charge_id)
   end
 
   private
@@ -50,6 +52,13 @@ class OrdersController < ApplicationController
 
   def amount_to_be_charged
     @amount = 1000
+  end
+
+  def find_beer
+    @beer = Beer.find(params[:beer_id])
+  rescue ActiveRecord::RecordNotFound => e
+    flash[:error] = 'Beer not found!'
+    redirect_to root_path
   end
 
 end
