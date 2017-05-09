@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Hood Profile:</h2>
+<br />
+<p>
+  <%= image_tag @profile.avatar.url(:medium), class: "img-thumbnail" %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.full_name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>Addres:</strong>
+  <%= @profile.full_adress  %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <strong>Brewing since:</strong>
+  <%= @profile.brewing_since %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= link_to nil, @profile.facebook, target:"blank" %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= link_to nil, @profile.twitter, target:"blank"  %>
+</p>
+
+<p>
+  <strong>Instagram:</strong>
+  <%= link_to nil, @profile.instagram, target: "blank" %>
+</p>
+<br />
+
+<% if @profile.user == current_user %>
+  <%= link_to 'Edit Profile', edit_profile_path(@profile), class: "button" %>
+  <%= link_to "Edit User", edit_user_registration_path, class: "button" %>
+  <%= link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"  %>
+
+<% end %>

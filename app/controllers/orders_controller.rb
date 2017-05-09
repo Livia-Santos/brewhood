@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
     @order.stripe_charge_id = charge.id
 
     @order.save!
+    flash[:success] = "Cheers! Your beer will be arriving soon!"
     redirect_to beer_path(@beer)
 
 

@@ -18,8 +18,9 @@
       #logo= link_to "BrewHood", root_path
       %nav
         - if user_signed_in?
+          = link_to "Account", my_profile_path
+          = link_to "Other Hoods", profiles_path
           = link_to "Sell Beer", new_beer_path
-          = link_to "Know the Hoods", profiles_path
           = link_to "Sign out", destroy_user_session_path, method: :delete
         - else
           = link_to "Sign In", new_user_session_path
@@ -28,7 +29,7 @@
   .wrapper
     .container
       - flash.each do |key,value|
-        %div{:class => "#{flash_class(key)}"}
+        %div{ class: "#{flash_class(key)}"}
           = value
 
   .wrapper
