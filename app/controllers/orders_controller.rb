@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_beer
   before_action :amount_to_be_charged
   before_action :description
 
@@ -52,13 +51,6 @@ class OrdersController < ApplicationController
 
   def amount_to_be_charged
     @amount = 1000
-  end
-
-  def find_beer
-    @beer = Beer.find(params[:beer_id])
-  rescue ActiveRecord::RecordNotFound => e
-    flash[:error] = 'Beer not found!'
-    redirect_to root_path
   end
 
 end

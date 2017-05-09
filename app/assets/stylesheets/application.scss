@@ -55,6 +55,7 @@ header {
 		}
 	}
 	nav {
+		float: right;
 		a {
       font-family: 'Coda Caption', sans-serif;
       font-size: 1.5rem;
@@ -69,7 +70,6 @@ header {
 		}
 	}
 }
-
 
 @import "index.css.scss";
 @import "beers.css.scss";

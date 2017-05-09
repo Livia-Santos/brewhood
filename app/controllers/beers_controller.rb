@@ -22,6 +22,7 @@ class BeersController < ApplicationController
   def create
     @beer = current_user.beers.build(beer_params)
 
+
     respond_to do |format|
       if @beer.save
         format.html { redirect_to @beer, notice: 'Beer was successfully created.' }
@@ -69,6 +70,6 @@ class BeersController < ApplicationController
     end
 
     def beer_params
-      params.require(:beer).permit(:name, :image, :beer_type, :description, :unit_type, :quantity, :price)
+      params.require(:beer).permit(:name, :image, :beer_type, :description, :unit_type, :quantity, :price, :profile_id)
     end
 end
