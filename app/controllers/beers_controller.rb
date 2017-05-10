@@ -12,7 +12,6 @@ class BeersController < ApplicationController
   end
 
   def show
-    ## When I am creating a beer I want to related to the profile
     @comments = Comment.where(beer_id: @beer)
     @profile =  @beer.user.profile
   end
