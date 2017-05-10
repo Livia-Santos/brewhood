@@ -1,0 +1,31 @@
+= simple_form_for @beer do |f|
+  - if beer.errors.any?
+    .alert.alert-danger
+      %h2
+        = pluralize(beer.errors.count, "error")
+        prohibited this beer from being saved:
+      %ul
+        - beer.errors.full_messages.each do |message|
+          %li= message
+  .form-inputs
+    = f.input :name, required: true, autofocus: true
+    = f.input :image
+    %br/
+    = f.input :description
+    %br/
+    = f.input :beer_type
+    %br/
+    = f.input :quantity
+    %br/
+  .form-group
+    = f.label :unit_type
+    %br/
+    = f.text_field :unit_type
+    %br/
+  .form-group
+    = f.label :price
+    %br/
+    = f.text_field :price
+    %br/
+  .form-group
+    = f.submit class: "button"

@@ -17,8 +17,16 @@ class OrdersController < ApplicationController
     # Stripe card is going to the db.
     @order.stripe_charge_id = charge.id
 
-    @order.save!
-    flash[:success] = "Cheers! Your beer will be arriving soon!"
+    @order.save! #fail?
+
+    order = {
+      email: current_user.email,
+      order_number: @order.id,
+      order_type: @order.beer.name
+    }
+
+    OrderMailer.send_order(order)
+    flash[:success] = "Cheers!You got a email with or order information! Your beer will be arriving soon!"
     redirect_to beer_path(@beer)
 
 

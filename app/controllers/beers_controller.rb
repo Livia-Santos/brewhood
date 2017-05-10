@@ -1,9 +1,14 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
-    @beers = Beer.all.order("created_at DESC")
+    @beers = Beer.all
+    if params[:search]
+      @beers = Beer.search(params[:search]).order("created_at DESC")
+    else
+      @beers = Beer.all.order("created_at DESC")
+    end
   end
 
   def show
@@ -21,7 +26,6 @@ class BeersController < ApplicationController
 
   def create
     @beer = current_user.beers.build(beer_params)
-
 
     respond_to do |format|
       if @beer.save

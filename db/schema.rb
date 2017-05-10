@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509081854) do
+ActiveRecord::Schema.define(version: 20170510021343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20170509081854) do
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "age"
     t.string   "address"
     t.string   "city"
     t.string   "state"
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170509081854) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.date     "birth"
     t.index ["user_id"], name: "index_profiles_on_user_id", using: :btree
   end
 

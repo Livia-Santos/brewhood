@@ -15,4 +15,8 @@ class Beer < ApplicationRecord
     (price * 100).to_i
   end
 
+  def self.search(search)
+    where("name LIKE ? OR beer_type LIKE ?", "%#{search.upcase}%", "%#{search.upcase}%")
+  end
+
 end
