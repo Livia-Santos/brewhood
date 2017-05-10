@@ -16,7 +16,7 @@ class Beer < ApplicationRecord
   end
 
   def self.search(search)
-    where("name LIKE ? OR beer_type LIKE ?", "%#{search.upcase}%", "%#{search.upcase}%")
+    where("UPPER (name) LIKE ? OR UPPER (beer_type) LIKE ?", "%#{search.upcase}%", "%#{search.upcase}%")
   end
 
 end

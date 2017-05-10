@@ -4,21 +4,20 @@
 	font-size: 2.75rem;
 	span {
 		font-size: 2.25rem;
-		color: #9B9B9B;
+		color: #000000;
 	}
 }
 #beers {
 	.beer {
 		background: #F8F9FA;
 		width: 100%;
-		max-width: 540px;
+		max-width: 500px;
 		min-width: 300px;
 		float: left;
 		margin: 1rem 1.5%;
 		border: 1px solid #E4E4E4;
 		border-radius: 0.3rem;
 		.beer_image {
-			height: 395px;
 			overflow: hidden;
 			img {
 				width: 100%;
@@ -26,10 +25,12 @@
 			}
 		}
 		.beer_content {
+			font-size: 2rem;
+			margin: 0;
+			padding: 1rem 5%;
 			h2 {
 				margin: 0;
 				font-weight: 100;
-				padding: 1rem 5%;
 				border-bottom: 1px solid #E4E4E4;
 				font-size: 2rem;
 				a {

@@ -35,7 +35,7 @@
 }
 #comments {
 	padding-bottom: 4rem;
-	width: 50%;
+	width: 100%;
 	.comment_count {
 		border-bottom: 1px solid #E9E9E9;
 		padding-bottom: .5rem;
@@ -47,12 +47,12 @@
 		padding-left: 5%;
 		.username {
 			font-size: 1.3rem;
-			color: #333233;
+			color: #969696;
 			margin: 0 0 .5rem 0;
 		}
 		.content {
 			margin: 0;
-			color: #969696;
+			color: #333233;
 		}
 	}
 	.comment_content {
@@ -60,7 +60,7 @@
 		textarea {
 			width: 100%;
 			margin: 1rem 0;
-			min-height: 150px;
+			max-height: 300px;
 			border: 1px solid #E4E4E4;
 			background: #F8F9FA;
 			border-radius: 0.3rem;
