@@ -1,0 +1,44 @@
+%br/
+%p
+  = image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
+%p
+  %strong Name:
+  = @profile.full_name
+%p
+  %strong Birth:
+  = @profile.birth
+%p
+  %strong Addres:
+  = @profile.full_adress
+%p
+  %strong Description:
+  = @profile.description
+%p
+  %strong Brewing since:
+  = @profile.brewing_since
+%p
+  %strong Facebook:
+  = link_to nil, @profile.facebook, target:"blank"
+%p
+  %strong Twitter:
+  = link_to nil, @profile.twitter, target:"blank"
+%p
+  %strong Instagram:
+  = link_to nil, @profile.instagram, target: "blank"
+%br/
+%p
+%h4 My brews:
+%br/
+- @profile.user.beers.each do |beer|
+  %p
+    %strong Name:
+    = beer.name
+  %p
+    %strong Type:
+    = beer.beer_type
+    = image_tag beer.image.url(:small), class: "thumbnail"
+  %hr/
+- if @profile.user == current_user
+  = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
+  = link_to "Edit User", edit_user_registration_path, class: "button"
+  = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"

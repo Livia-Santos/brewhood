@@ -1,0 +1,17 @@
+%h1 Profiles
+%table.table.table-inversive
+  %thead
+    %tr
+      %th Name
+      %th
+      %th Country code
+      %th Brewing since
+      %th{:colspan => "3"}
+  %tbody
+    - @profiles.each do |profile|
+      %tr
+        %td{:scope => "row"}= profile.first_name
+        %td{:scope => "row"}= image_tag profile.avatar.url(:thumb)
+        %td{:scope => "row"}= profile.country.name
+        %td{:scope => "row"}= profile.brewing_since
+        %td{:scope => "row"}= link_to 'Profile', profile
