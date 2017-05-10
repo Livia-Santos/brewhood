@@ -1,34 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Profiles</h1>
-<div  class="table-responsive">
-  <table class= "table table-hover">
-    <thead>
-      <tr>
-        <th>Hood</th>
-        <th>Avatar</th>
-        <th>Country code</th>
-        <th>Brewing since</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+<div class="panel">
+  <div  class="panel-heading">
+    <h1>Profiles</h1>
+    <div  class="table table-responsive">
+      <table class= "table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th>Country code</th>
+            <th>Brewing since</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @profiles.each do |profile| %>
-        <tr>
-          <td><%= profile.first_name %></td>
-          <td><%= image_tag profile.avatar.url(:thumb) %></td>
-          <td><%= profile.country_code %></td>
-          <td><%= profile.brewing_since %></td>
-          <% if profile.user == current_user %>
-            <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-            <td><%= link_to 'Show', profile %></td>
-          <% else %>
-            <td><%= link_to 'Show', profile %></td>
+        <tbody>
+          <% @profiles.each do |profile| %>
+            <tr>
+              <td><%= profile.first_name %></td>
+              <td><%= image_tag profile.avatar.url(:thumb) %></td>
+              <td><%= profile.country_code %></td>
+              <td><%= profile.brewing_since %></td>
+              <td><%= link_to 'Profile', profile %></td>
+            </tr>
           <% end %>
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
