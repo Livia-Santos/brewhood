@@ -3,7 +3,6 @@ class BeersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @beers = Beer.all
     if params[:search]
       @beers = Beer.search(params[:search]).order("created_at DESC")
     else

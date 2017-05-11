@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  validates :address, presence: true
+  validates :first_name, :address, presence: true
 
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
@@ -16,6 +16,10 @@ class Profile < ApplicationRecord
 
   def full_adress
     [address,city, state,country.name].compact.join(", ")
+  end
+
+  def self.search(search)
+    where("first_name ILIKE ?", "%#{search}%")
   end
 
 end

@@ -16,7 +16,12 @@ class Beer < ApplicationRecord
   end
 
   def self.search(search)
-    where("UPPER (name) LIKE ? OR UPPER (beer_type) LIKE ?", "%#{search.upcase}%", "%#{search.upcase}%")
+    where("name ILIKE ? OR beer_type ILIKE ?", "%#{search}%", "%#{search}%")
+  end
+
+  def sell
+    self.quantity = quantity - 1
+    save!
   end
 
 end

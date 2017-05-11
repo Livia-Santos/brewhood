@@ -1,7 +1,8 @@
 .wrapper
-  = form_tag(beers_path, :method => "get", id: "search-form", class:"from-group") do
-    = text_field_tag :search, params[:search], placeholder: "Search your beer for name or type", class: "form-control"
-    = submit_tag "Search", :name => nil, class: "btn btn-default"
+  .search-form
+    = form_tag(beers_path, :method => "get", id: "search-form", class:"from-group") do
+      = text_field_tag :search, params[:search], placeholder: "Search your beer for name or type", class: "form-control"
+      = submit_tag "Search", :name => nil, class: "btn btn-default search-btn"
 
 - if user_signed_in?
   %p#intro

@@ -3,7 +3,11 @@ class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @profiles = Profile.all
+    if params[:search]
+      @profiles = Profile.search(params[:search]).order("created_at DESC")
+    else
+      @profiles = Profile.all.order("created_at DESC")
+    end
   end
 
   def show
