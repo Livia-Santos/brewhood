@@ -36,7 +36,8 @@
   %p
     %strong Type:
     = beer.beer_type
-    = image_tag beer.image.url(:small), class: "thumbnail"
+    %a{href: beer_path(beer) }
+      = image_tag beer.image.url(:small), class: "thumbnail"
   %hr/
 - if @profile.user == current_user
   = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"

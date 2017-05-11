@@ -36,41 +36,31 @@ h1, h2, h3, h4, h5, h6 {
 	background: #000000;
 	color: #ffffff;
 }
-
-header {
-  background-color: #000000;
-	width: 100%;
-	padding: 2rem 0;
-
-  #logo {
-		font-family: 'Unlock', cursive;
-		float: left;
-		font-size: 2.5rem;
-		a {
-			font-family: 'Coda Caption', sans-serif;
-			color: #EEA90A;
-			text-decoration: none;
-			&:hover {
-				color: #50A7C7;
-			}
-		}
-	}
-	nav {
-		float: right;
-		a {
-      font-family: 'Coda Caption', sans-serif;
-      font-size: 1.5rem;
-			margin-left: 1.5rem;
-			line-height: 2;
-			color: #EEA90A;
-			text-decoration: none;
-			&:hover {
-				color: #50A7C7;
-				text-decoration: none;
-			}
-		}
-	}
+.navbar-default {
+	background-color: #000000;
 }
+.nav.navbar-nav.navbar-right {
+	margin-right: 20px;
+}
+span.icon-bar {
+	color: #EEA90A;
+}
+
+.logo {
+	font-family: 'Unlock', cursive;
+	font-size: 2.5rem;
+	margin-left: 20px;
+}
+
+.navbar-default .navbar-brand {
+	color: #EEA90A;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #EEA90A;
+
+}
+
 
 @import "index.css.scss";
 @import "beers.css.scss";
