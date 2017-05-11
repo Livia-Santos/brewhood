@@ -1,6 +1,5 @@
 %br/
-%p
-  = image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
+%p= image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
 %p
   %strong Name:
   = @profile.full_name
@@ -43,3 +42,4 @@
   = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
   = link_to "Edit User", edit_user_registration_path, class: "button"
   = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"
+  %br

@@ -7,6 +7,7 @@
 		margin-right: 5%;
 	}
 	.beer_data {
+		font-size: 3rem;
 		width: 15%;
 		float: left;
 		.button {
@@ -31,6 +32,7 @@
 			color: #969696;
 			margin: 0;
 		}
+
 	}
 }
 #comments {
@@ -65,5 +67,16 @@
 			background: #F8F9FA;
 			border-radius: 0.3rem;
 		}
+	}
+}
+.post_image_description {
+	font-size: 1.8rem;
+}
+
+.description {
+	.legend {
+		font-family: 'Coda Caption', sans-serif;
+		font-size: 2rem;
+		font-weight: bold;
 	}
 }

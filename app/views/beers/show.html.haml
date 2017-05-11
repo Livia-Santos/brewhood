@@ -15,6 +15,7 @@
         = link_to dislike_beer_path(@beer), method: :get, class: "data" do
           %i.fa.fa-thumbs-o-down
           = pluralize(@beer.get_downvotes.size, "Dislike")
+          %br
         - if @beer.user == current_user
           = link_to "Edit", edit_beer_path(@beer), class: "button"
           = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
@@ -24,9 +25,10 @@
             %article
               %label.amount
                 %span
-                Unit price: #{pretty_amount(@beer.price_in_cents)}
+                %h4 Unit price: #{pretty_amount(@beer.price_in_cents)}
             %script.stripe-button{"data-amount" => "#{@beer.price_in_cents}", "data-description" => "#{@beer.name}", "data-email" => "#{current_user.email}", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
         -else
+          %br
           =link_to "Sign In to Buy", new_user_session_path, class: "button"
 
 
@@ -34,15 +36,17 @@
         %br
         %h4 Description:
         = simple_format(@beer.description)
-        %h4 beer type:
-        = @beer.beer_type
-        %h4 Unit type:
-        = @beer.unit_type
-        %h4 Quantity available:
-        = @beer.quantity
-        %h4 Price:
-        = @beer.price
+        %p
+          %span.legend Beer type:
+          = @beer.beer_type
+        %p
+          %span.legend Unit type:
+          = @beer.unit_type
+        %p
+          %sapn.legend Quantity available:
+          = @beer.quantity
 
+        %br
         .text-center
           %h4 Brewed by:
           %p= image_tag @profile.avatar.url(:thumb), class: "img-circle"
@@ -50,10 +54,11 @@
           %h5 From: #{@profile.country.name}
           %br
           = link_to "Hood Profile", profile_path(@profile), class: "button"
+          %br
 
-
+%br
 #comments
-  %h2.comment_count= pluralize(@beer.comments.count, "Comment")
+  %h3.comment_count= pluralize(@beer.comments.count, "Comment")
   - @comments.each do |comment|
     .comment
       %p.content= comment.content

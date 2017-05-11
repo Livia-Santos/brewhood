@@ -26,18 +26,18 @@
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li
-                %a{:href => my_profile_path } Account
-              %li
-                %a{:href => profiles_path } Other Hood
+                %a{:href => profiles_path } Other Hoods
               %li
                 %a{:href => new_beer_path } Sell Beer
               %li
-                %a{:href => destroy_user_session_path, method: :delete } Sign out
+                %a{:href => my_profile_path } Account
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, method: :delete
             - else
               %li
-                %a{:href => new_user_session_path, method: :delete } Sign In
+                %a{:href => new_user_session_path} Sign In
               %li
-                %a{:href => new_user_registration_path, method: :delete } Sign Up
+                %a{:href => new_user_registration_path } Sign Up
 
   .wrapper
     .container

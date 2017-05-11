@@ -7,6 +7,10 @@
 body {
 	font-family: 'Droid Sans', sans-serif;
 	letter-spacing: 0.15rem;
+	padding-top: 60px;
+}
+p{
+	font-size: 1.8rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav.navbar-nav.navbar-right {
 	margin-right: 20px;
 }
+
 span.icon-bar {
 	color: #EEA90A;
 }
@@ -51,15 +56,31 @@ span.icon-bar {
 	font-size: 2.5rem;
 	margin-left: 20px;
 }
+.logo.navbar-brand:hover{
+	color: white;
+}
 
 .navbar-default .navbar-brand {
 	color: #EEA90A;
 }
 
 .navbar-default .navbar-nav > li > a {
+	font-family: 'Droid Sans', sans-serif;
 	color: #EEA90A;
-
+	font-size: 1.6rem;
 }
+
+.navbar-default .navbar-nav > li > a:hover {
+	color: white;
+}
+
+.footer{
+	background-color: #000000;
+	margin-top: 100px;
+	padding: 15px;
+	clear: both;
+}
+
 
 
 @import "index.css.scss";
