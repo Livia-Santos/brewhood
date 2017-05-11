@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
+
   def create
     order = Order.new
     beer = Beer.find(params[:beer_id])

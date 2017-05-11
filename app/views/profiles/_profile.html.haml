@@ -5,7 +5,7 @@
   = @profile.full_name
 %p
   %strong Birth:
-  = @profile.birth
+  = @profile.birth.strftime("%d-%b-%Y")
 %p
   %strong Addres:
   = @profile.full_adress
@@ -38,6 +38,7 @@
     %a{href: beer_path(beer) }
       = image_tag beer.image.url(:small), class: "thumbnail"
   %hr/
+
 - if @profile.user == current_user
   %h4 My orders:
   %br/
@@ -49,7 +50,7 @@
       %strong beer:
       = order.beer.name
     %p
-      %strong Type:
+      %strong Price: $
       = order.beer.price
     %p
       %strong Purchased:
