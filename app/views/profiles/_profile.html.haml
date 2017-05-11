@@ -39,6 +39,24 @@
       = image_tag beer.image.url(:small), class: "thumbnail"
   %hr/
 - if @profile.user == current_user
+  %h4 My orders:
+  %br/
+  - @profile.user.orders.each do |order|
+    %p
+      %strong Order Number:
+      = order.id
+    %p
+      %strong beer:
+      = order.beer.name
+    %p
+      %strong Type:
+      = order.beer.price
+    %p
+      %strong Purchased:
+      = order.created_at.strftime("%d-%b-%Y")
+    %hr
+
+  %br
   = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
   = link_to "Edit User", edit_user_registration_path, class: "button"
   = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"

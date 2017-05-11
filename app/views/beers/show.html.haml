@@ -17,6 +17,7 @@
           = pluralize(@beer.get_downvotes.size, "Dislike")
           %br
         - if @beer.user == current_user
+          %br
           = link_to "Edit", edit_beer_path(@beer), class: "button"
           = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
         - elsif current_user
@@ -70,3 +71,4 @@
 
 
 =render "comments/form"
+%br
