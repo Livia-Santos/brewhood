@@ -28,7 +28,7 @@ class OrdersController < ApplicationController
       user_name: current_user.profile.first_name
     }
 
-    OrderMailer.send_order(order_details).deliver_now
+    OrderMailer.send_order(order_details).deliver_later
     flash[:success] = "Cheers! You got an email with your order information! Your beer will be arriving soon!"
     redirect_to beer_path(beer)
 
