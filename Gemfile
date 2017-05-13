@@ -23,6 +23,8 @@ gem 'stripe'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'money-rails', '~>1'
 gem 'country_select'
+gem 'sidekiq'
+
 
 
 
