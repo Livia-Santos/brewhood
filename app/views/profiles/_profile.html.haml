@@ -1,4 +1,4 @@
-%br/
+.container
 %p= image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
 %p
   %strong Name:
@@ -16,14 +16,15 @@
   %strong Brewing since:
   = @profile.brewing_since
 %p
-  %strong Facebook:
-  = link_to nil, @profile.facebook, target:"blank"
+.container
+%strong Facebook:
+= link_to nil, @profile.facebook, target:"blank"
 %p
-  %strong Twitter:
-  = link_to nil, @profile.twitter, target:"blank"
+%strong Twitter:
+= link_to nil, @profile.twitter, target:"blank"
 %p
-  %strong Instagram:
-  = link_to nil, @profile.instagram, target: "blank"
+%strong Instagram:
+= link_to nil, @profile.instagram, target: "blank"
 %br/
 %p
 %h4 My brews:
@@ -35,8 +36,9 @@
   %p
     %strong Type:
     = beer.beer_type
+    %br
     %a{href: beer_path(beer) }
-      = image_tag beer.image.url(:small), class: "thumbnail"
+      = image_tag beer.image.url(:small), class: "img-thumbnail"
   %hr/
 
 - if @profile.user == current_user

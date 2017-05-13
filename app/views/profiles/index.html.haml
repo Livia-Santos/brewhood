@@ -1,4 +1,4 @@
-.wrapper
+.container
   = form_tag(profiles_path, :method => "get", id: "search-form", class:"input-group") do
     = text_field_tag :search, params[:search], placeholder: "Search by name", class: "input form-control"
     .input-group-btn

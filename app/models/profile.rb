@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  validates :first_name,:birth, :address, :city, :state, presence: true
+  validates :first_name,:birth, :address, :city, :state, :avatar, presence: true
   validates :description, length: { minimum: 25 }
 
 
