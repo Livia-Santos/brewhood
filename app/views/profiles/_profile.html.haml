@@ -47,7 +47,7 @@
       %strong Order Number:
       = order.id
     %p
-      %strong beer:
+      %strong Beer:
       = order.beer.name
     %p
       %strong Price: $
@@ -57,8 +57,8 @@
       = order.created_at.strftime("%d-%b-%Y")
     %hr
 
-  %br
-  = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
-  = link_to "Edit User", edit_user_registration_path, class: "button"
-  = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"
+  .btn.group
+    = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
+    = link_to "Edit User", edit_user_registration_path, class: "button"
+    = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"
   %br

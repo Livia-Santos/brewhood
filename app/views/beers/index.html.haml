@@ -1,6 +1,6 @@
 .wrapper
   = form_tag(beers_path, :method => "get", id: "search-form", class:"input-group") do
-    = text_field_tag :search, params[:search], placeholder: "Search for your next beer by name or type", class: "input form-control"
+    = text_field_tag :search, params[:search], placeholder: "Search beer by name or type", class: "input form-control"
     .input-group-btn
       = submit_tag "Search", :name => nil, class: "btn btn-default"
 
@@ -19,20 +19,19 @@
       Find your next homebrew beer here.
 
 #beers
-  .container
-    - @beers.each do |beer|
-      .beer
-        .beer_image
-          = link_to (image_tag beer.image.url(:small)), beer
-        .beer_content
-          .title
-            %h2= link_to beer.name, beer
-            .data.clearfix.visible-xs-block
+  - @beers.each do |beer|
+    .beer
+      .beer_image
+        = link_to (image_tag beer.image.url(:small)), beer
+      .beer_content
+        .title
+          %h2= link_to beer.name, beer
+          .data.clearfix.visible-xs-block
 
-            %p.buttons
-              %span
-                %i.fa.fa-comments-o
-                  = beer.comments.count
-              %span
-                %i.fa.fa-thumbs-o-up
-                  = beer.get_likes.size
+          %p.buttons
+            %span
+              %i.fa.fa-comments-o
+                = beer.comments.count
+            %span
+              %i.fa.fa-thumbs-o-up
+                = beer.get_likes.size
