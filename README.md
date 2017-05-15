@@ -43,6 +43,7 @@ Find homebrewers that have the same brew level of skills that I have.
   * In order to network with other homebrewers, as I homebrewer, I want to see contacts and information about them.
 
 ### Project Workflow and documentation
+The following are part of the Trello Board's Card which would be used to build my application. Figma design tool is also used for doing all web pages wireframe design.
 * User stories
 * Entities
 * Structure and Features
