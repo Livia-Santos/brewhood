@@ -51,10 +51,10 @@ Find homebrewers that have the same brew level of skills that I have.
 * Done
 
 ### DB schema:
-  - picture
+![DB_schema](https://github.com/Livia-Santos/brewhood/blob/master/documentation/db_schema.png)
 
 ### Mockup and Framework:
-  - Figma and photos;
+![Mobile_version](https://github.com/Livia-Santos/brewhood/blob/master/documentation/desktop%20version.png)
 
 ### Tools I used:
 - Pen and Paper;
