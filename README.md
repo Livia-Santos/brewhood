@@ -6,7 +6,7 @@ This app was built with the main goal of learn,  understand and practice Ruby on
 
 It was elaborated following the guidelines exposed by the course that I am currently doing at the Coder Factory Academy.
 
-##Hosted by: <https://young-crag-54781.herokuapp.com>
+## Hosted by: <https://young-crag-54781.herokuapp.com>
 
 ### Setup on your local Machine
 * Clone repository
