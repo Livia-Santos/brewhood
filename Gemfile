@@ -26,10 +26,6 @@ gem 'country_select'
 gem 'sidekiq'
 gem 'aws-sdk', '~> 2.3'
 
-
-
-
-
 group :development, :test do
   gem 'byebug', platform: :mri
 end

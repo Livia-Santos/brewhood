@@ -1,6 +1,5 @@
 #beer_show {
 	padding-top: 2rem;
-
 	.beer_image_description {
 		width: 60%;
 		float: left;
@@ -68,6 +67,11 @@
 			border-radius: 0.3rem;
 		}
 	}
+}
+
+.sold_out {
+	font-style: italic;
+	color: red;
 }
 .post_image_description {
 	font-size: 1.8rem;

@@ -27,7 +27,10 @@
               %label.amount
                 %span
                 %h4 Unit price: #{pretty_amount(@beer.price_in_cents)}
-            %script.stripe-button{"data-amount" => "#{@beer.price_in_cents}", "data-description" => "#{@beer.name}", "data-email" => "#{current_user.email}", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+            - if @beer.quantity > 0
+              %script.stripe-button{"data-amount" => "#{@beer.price_in_cents}", "data-description" => "#{@beer.name}", "data-email" => "#{current_user.email}", "data-key" => "#{Rails.configuration.stripe[:publishable_key]}", "data-locale" => "auto", :src => "https://checkout.stripe.com/checkout.js"}
+            - else
+              %p.sold_out SOLD OUT
         -else
           %br
           =link_to "Sign In to Buy", new_user_session_path, class: "button"
@@ -45,7 +48,10 @@
           = @beer.unit_type
         %p
           %sapn.legend Quantity available:
-          = @beer.quantity
+          - if @beer.quantity > 0
+            = @beer.quantity
+          - else
+            %p.sold_out SOLD OUT
 
         %br
         .text-center

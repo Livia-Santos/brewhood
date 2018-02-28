@@ -20,6 +20,8 @@ class Beer < ApplicationRecord
   end
 
   def sell
+    return if quantity <= 0
+
     self.quantity = quantity - 1
     save!
   end

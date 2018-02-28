@@ -44,7 +44,7 @@
 - if @profile.user == current_user
   %h4 My orders:
   %br/
-  - @profile.user.orders.each do |order|
+  - @profile.user.orders.reverse.each do |order|
     %p
       %strong Order Number:
       = order.id
