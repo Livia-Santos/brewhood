@@ -18,8 +18,8 @@
           %br
         - if @beer.user == current_user
           %br
-          = link_to "Edit", edit_beer_path(@beer), class: "button"
-          = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "button"
+          = link_to "Edit", edit_beer_path(@beer), class: "btn btn-default dark"
+          = link_to "Delete", beer_path(@beer), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default dark"
         - elsif current_user
           = form_tag orders_path do |f|
             = hidden_field_tag 'beer_id', @beer.id
@@ -33,7 +33,7 @@
               %p.sold_out SOLD OUT
         -else
           %br
-          =link_to "Sign In to Buy", new_user_session_path, class: "button"
+          =link_to "Sign In to Buy", new_user_session_path, class: "btn btn-default dark"
 
 
       .description
@@ -60,7 +60,7 @@
           %h5 Hood: #{@profile.first_name}
           %h5 From: #{@profile.country.name}
           %br
-          = link_to "Hood Profile", profile_path(@profile), class: "button"
+          = link_to "Hood Profile", profile_path(@profile), class: "btn btn-default dark"
           %br
 
 %br

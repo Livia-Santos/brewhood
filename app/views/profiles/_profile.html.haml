@@ -25,9 +25,9 @@
 %p
 %strong Instagram:
 = link_to nil, @profile.instagram, target: "blank"
-%br/
+%hr/
 %p
-%h4 My brews:
+%h3 My brews:
 %br/
 - @profile.user.beers.each do |beer|
   %p
@@ -42,7 +42,7 @@
   %hr/
 
 - if @profile.user == current_user
-  %h4 My orders:
+  %h3 My orders:
   %br/
   - @profile.user.orders.reverse.each do |order|
     %p
@@ -60,7 +60,7 @@
     %hr
 
   .btn.group
-    = link_to 'Edit Profile', edit_profile_path(@profile), class: "button"
-    = link_to "Edit User", edit_user_registration_path, class: "button"
-    = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "button"
+    = link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-default dark"
+    = link_to "Edit User", edit_user_registration_path, class: "btn btn-default dark"
+    = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-default dark"
   %br
