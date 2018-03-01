@@ -50,6 +50,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @profile.destroy
+    current_user.destroy
     respond_to do |format|
       format.html { redirect_to beers_path, notice: 'Profile was successfully destroyed.' }
       format.json { head :no_content }
