@@ -1,49 +1,49 @@
 !!!
 %html
-%head
-  %title BrewHood
-  = stylesheet_link_tag 'application', media: 'all'
-  = javascript_include_tag 'application'
-  %link{:rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
-  %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Unlock"}
-  %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Coda+Caption:800|Unlock"}
-  %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
-  %link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
-  = csrf_meta_tags
-  %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+  %head
+    %title BrewHood
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+    %link{:rel => "stylesheet", :href => "https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"}
+    %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Unlock"}
+    %link{:rel => "stylesheet", :href => "https://fonts.googleapis.com/css?family=Coda+Caption:800|Unlock"}
+    %link{:href => "/favicon.ico", :rel => "shortcut icon"}/
+    %link{:rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
 
   %body
-  .mynav
-    %navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        .navbar-header
-          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.navbar-brand{:href => beers_path, class: "logo"} BrewHood
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          %ul.nav.navbar-nav.navbar-right
-            - if user_signed_in?
-              %li
-                %a{:href => profiles_path } Other Hoods
-              %li
-                %a{:href => new_beer_path } Sell Beer
-              %li
-                %a{:href => my_profile_path } Account
-              %li
-                = link_to 'Sign Out', destroy_user_session_path, method: :delete
-            - else
-              %li
-                %a{:href => new_user_session_path} Sign In
-              %li
-                %a{:href => new_user_registration_path } Sign Up
+    .mynav
+      %navbar.navbar-default.navbar-fixed-top
+        .container-fluid
+          .navbar-header
+            %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.navbar-brand{:href => beers_path, class: "logo"} BrewHood
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.navbar-right
+              - if user_signed_in?
+                %li
+                  %a{:href => profiles_path } Other Hoods
+                %li
+                  %a{:href => new_beer_path } Sell Beer
+                %li
+                  %a{:href => my_profile_path } Account
+                %li
+                  = link_to 'Sign Out', destroy_user_session_path, method: :delete
+              - else
+                %li
+                  %a{:href => new_user_session_path} Sign In
+                %li
+                  %a{:href => new_user_registration_path } Sign Up
 
-  .wrapper
-    - flash.each do |key,value|
-      %div{ class: "#{flash_class(key)}"}
-        = value
+    .wrapper
+      - flash.each do |key,value|
+        %div{ class: "#{flash_class(key)}"}
+          = value
 
-  .wrapper
-    = yield
+    .wrapper
+      = yield
