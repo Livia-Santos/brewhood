@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  post 'relationships/follow_profile/:id', to: 'relationships#follow_profile', as: :follow_profile
+  post 'relationships/unfollow_profile/:id', to: 'relationships#unfollow_profile', as: :unfollow_profile
+
   resources :profiles
   devise_for :users
   resources :orders, only: [:new, :create]

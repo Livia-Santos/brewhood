@@ -1,5 +1,10 @@
 .container
 %p= image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
+%span
+  = link_to 'Follow', follow_profile_path(@profile.id),
+                      remote: true,
+                      class: "btn btn-default dark",
+                      method: :post
 %p
   %strong Name:
   = @profile.full_name
