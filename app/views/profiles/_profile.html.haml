@@ -19,19 +19,19 @@
 .container
 %strong Facebook:
 - if !@profile.facebook.start_with?("http")
-  = link_to "Not Found"
+  %span= "Not Found"
 - else
   = link_to nil, @profile.facebook, target:"blank"
 %p
 %strong Twitter:
 - if !@profile.twitter.start_with?("http")
-  = link_to "Not Found"
+  %span= "Not Found"
 - else
 = link_to nil, @profile.twitter, target:"blank"
 %p
 %strong Instagram:
 - if !@profile.instagram.start_with?("http")
-  = link_to "Not Found"
+  %span= "Not Found"
 - else
   = link_to nil, @profile.instagram, target: "blank"
 %hr/
