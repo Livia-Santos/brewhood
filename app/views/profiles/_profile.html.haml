@@ -18,13 +18,22 @@
 %p
 .container
 %strong Facebook:
-= link_to nil, @profile.facebook, target:"blank"
+- if !@profile.facebook.start_with?("http")
+  = link_to "Not Found"
+- else
+  = link_to nil, @profile.facebook, target:"blank"
 %p
 %strong Twitter:
+- if !@profile.twitter.start_with?("http")
+  = link_to "Not Found"
+- else
 = link_to nil, @profile.twitter, target:"blank"
 %p
 %strong Instagram:
-= link_to nil, @profile.instagram, target: "blank"
+- if !@profile.instagram.start_with?("http")
+  = link_to "Not Found"
+- else
+  = link_to nil, @profile.instagram, target: "blank"
 %hr/
 %p
 %h3 My brews:
