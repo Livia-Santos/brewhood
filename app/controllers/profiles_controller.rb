@@ -62,6 +62,13 @@ class ProfilesController < ApplicationController
     @profile = current_user.profile
   end
 
+  def get_follow
+    # current_user.profile + user I want to get_follow
+    # construct the relashionship
+  end
+
+
+
   private
     def set_profile
       @profile = Profile.find(params[:id])
