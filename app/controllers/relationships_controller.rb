@@ -4,11 +4,12 @@ class RelationshipsController < ApplicationController
   def follow_profile
     @profile = Profile.find(params[:id])
     current_user.profile.follow(@profile.id)
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   def unfollow_profile
     @profile = Profile.find(params[:id])
-    redirect_to root_path
+    current_user.profile.unfollow(@profile.id)
+    redirect_to profile_path
   end
 end

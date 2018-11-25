@@ -14,12 +14,18 @@
       Hoods ||
       - if profile.followers.count > 0
         = profile.followers.map { |profile| profile.first_name }.join(", ")
-    - if !(profile.user == current_user ) && !(current_user.profile.follows?(profile.id))
-      %span
-        = link_to 'Follow', follow_profile_path(@profile.id),
-                            remote: true,
-                            class: "btn btn-default dark",
-                            method: :post
+    %p
+      - if !(profile.user == current_user )
+        -if !(current_user.profile.follows?(profile.id))
+          %span
+            = link_to 'Follow', follow_profile_path(@profile.id),
+                                class: "btn btn-default dark",
+                                method: :post
+        - else
+          %span
+            = link_to 'Unfollow', unfollow_profile_path(@profile.id),
+                                class: "btn btn-default dark",
+                                method: :post
 %p
   %strong Name:
   = profile.full_name
