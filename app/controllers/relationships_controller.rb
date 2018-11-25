@@ -3,21 +3,12 @@ class RelationshipsController < ApplicationController
 
   def follow_profile
     @profile = Profile.find(params[:id])
-    if current_user.profile.follow(@profile.id)
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js
-      end
-    end
+    current_user.profile.follow(@profile.id)
+    redirect_to root_path
   end
 
   def unfollow_profile
     @profile = Profile.find(params[:id])
-    if current_user.profile.unfollow (@profile.id)
-      respond_to do |format|
-        format.html { redirect_to root_path }
-        format.js
-      end
-    end
+    redirect_to root_path
   end
 end

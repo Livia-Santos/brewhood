@@ -20,6 +20,11 @@ class Profile < ApplicationRecord
     following_relationships.find_by(following_id: profile_id).destroy
   end
 
+  def follows?(profile_id)
+    followers_id = following.map{|follower| follower.id }
+    followers_id.include?(profile_id)
+  end
+
   def country
     ISO3166::Country.new(country_code)
   end

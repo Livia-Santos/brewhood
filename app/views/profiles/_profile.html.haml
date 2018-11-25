@@ -1,49 +1,64 @@
 .container
-%p= image_tag @profile.avatar.url(:medium), class: "img-thumbnail"
-%span
-  = link_to 'Follow', follow_profile_path(@profile.id),
-                      remote: true,
-                      class: "btn btn-default dark",
-                      method: :post
+%div.flex-wrapper
+  %p= image_tag profile.avatar.url(:medium), class: "img-thumbnail"
+  %div.profile__following--display
+    %p
+      Following
+      %strong #{profile.following.count}
+      Hoods ||
+      - if profile.following.count > 0
+        = profile.following.map{|profile| profile.first_name}.join(", ")
+    %p
+      Followed by
+      %strong #{profile.followers.count}
+      Hoods ||
+      - if profile.followers.count > 0
+        = profile.followers.map { |profile| profile.first_name }.join(", ")
+    - if !(profile.user == current_user ) && !(current_user.profile.follows?(profile.id))
+      %span
+        = link_to 'Follow', follow_profile_path(@profile.id),
+                            remote: true,
+                            class: "btn btn-default dark",
+                            method: :post
 %p
   %strong Name:
-  = @profile.full_name
+  = profile.full_name
 %p
   %strong Birth:
-  = @profile.birth.strftime("%d-%b-%Y")
+  = profile.birth.strftime("%d-%b-%Y")
 %p
   %strong Addres:
-  = @profile.full_adress
+  = profile.full_adress
 %p
   %strong Description:
-  = @profile.description
+  = profile.description
 %p
   %strong Brewing since:
-  = @profile.brewing_since
+  = profile.brewing_since
 %p
 .container
 %strong Facebook:
-- if !@profile.facebook.start_with?("http")
+- if !profile.facebook.start_with?("http")
   %span= "Not Found"
 - else
-  = link_to nil, @profile.facebook, target:"blank"
+  = link_to nil, profile.facebook, target:"blank"
 %p
 %strong Twitter:
-- if !@profile.twitter.start_with?("http")
+- if !profile.twitter.start_with?("http")
   %span= "Not Found"
 - else
-= link_to nil, @profile.twitter, target:"blank"
+= link_to nil, profile.twitter, target:"blank"
 %p
 %strong Instagram:
-- if !@profile.instagram.start_with?("http")
+- if !profile.instagram.start_with?("http")
   %span= "Not Found"
 - else
-  = link_to nil, @profile.instagram, target: "blank"
+  = link_to nil, profile.instagram, target: "blank"
 %hr/
 %p
 %h3 My brews:
 %br/
-- @profile.user.beers.each do |beer|
+- profile.user.beers.each do |beer|
   %p
     %strong Name:
     = beer.name
@@ -55,10 +70,10 @@
       = image_tag beer.image.url(:small), class: "img-thumbnail"
   %hr/
 
-- if @profile.user == current_user
+- if profile.user == current_user
   %h3 My orders:
   %br/
-  - @profile.user.orders.reverse.each do |order|
+  - profile.user.orders.reverse.each do |order|
     %p
       %strong Order Number:
       = order.id
@@ -76,5 +91,5 @@
   .btn.group
     = link_to 'Edit Profile', edit_profile_path(@profile), class: "btn btn-default dark"
     = link_to "Edit User", edit_user_registration_path, class: "btn btn-default dark"
-    = link_to 'Destroy', @profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-default dark"
+    = link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-default dark"
   %br

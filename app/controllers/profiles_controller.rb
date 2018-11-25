@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @WhoIam = current_user.profile
   end
 
   def new
