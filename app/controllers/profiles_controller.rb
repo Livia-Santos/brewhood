@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @WhoIam = current_user.profile
   end
 
   def new
@@ -61,6 +62,13 @@ class ProfilesController < ApplicationController
   def my_profile
     @profile = current_user.profile
   end
+
+  def get_follow
+    # current_user.profile + user I want to get_follow
+    # construct the relashionship
+  end
+
+
 
   private
     def set_profile
